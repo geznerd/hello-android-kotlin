@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">Hello World</string>
-    <string name="bmi_label">BMI adalah cara untuk menentukan apakah berat badanmu ideal atau tidak. Coba Sekarang!</string>
-    <string name="berat_label">Berat Badan (kg)</string>
+    <string name="app_name">BMI Calculator</string>
     <string name="tinggi_label">Tinggi Badan (cm)</string>
     <string name="pria">Pria</string>
     <string name="wanita">Wanita</string>
@@ -11,11 +9,13 @@
     <string name="kategori">Kategori: Ideal</string>
     <string name="bmi_x">BMI: %1$.2f</string>
 
-    <string name="kurus">Kurus</string>
+    <string name="kurus">thin</string>
     <string name="ideal">Ideal</string>
-    <string name="gemuk">Gemuk</string>
-    <string name="gemol">Gemol</string>
+    <string name="gemuk">fat</string>
 
-    <string name="kategori_x">Kategori: %1$s</string>
+    <string name="kategori_x">Categori: %1$s</string>
+    <string name="bmi_label">BMI is a way to determine whether your body weight is ideal or not. Try now!</string>
+    <string name="berat_label">Weight (kg)</string>
+    <string name="gemol">Very fat</string>
 
 </resources>
