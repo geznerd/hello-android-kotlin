@@ -7,4 +7,6 @@
     <string name="wanita">Wanita</string>
     <string name="jenis_kelamin_label">Jenis Kelamin</string>
     <string name="hitung">Hitung</string>
+    <string name="bmi_result">23,45</string>
+    <string name="kategori">Kategori: Ideal</string>
 </resources>
