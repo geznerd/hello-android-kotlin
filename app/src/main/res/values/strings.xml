@@ -17,5 +17,6 @@
     <string name="bmi_label">BMI is a way to determine whether your body weight is ideal or not. Try now!</string>
     <string name="berat_label">Weight (kg)</string>
     <string name="gemol">Very fat</string>
+    <string name="tinggi_error">Tinggi Bandan  tidak boleh kosong</string>
 
 </resources>

@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val tinggi = binding.tinggiEditText.text.toString()
 
         if(TextUtils.isEmpty(tinggi)){
-            Toast.makeText(this, "Tinggi Bandan  tidak boleh kosong", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.tinggi_error), Toast.LENGTH_LONG).show()
             return
         }
 
