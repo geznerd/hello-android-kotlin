@@ -1,6 +1,8 @@
 package com.azmi.helloworld
 
 import android.os.Bundle
+import android.text.TextUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.azmi.helloworld.databinding.ActivityMainBinding
 
@@ -19,16 +21,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hitung() {
-        val berat = binding.beratEditText.text.toString().toFloat()
-        val tinggi = binding.tinggiEditText.text.toString().toFloat() / 100
-        val bmi = berat /(tinggi * tinggi)
+        val berat = binding.beratEditText.text.toString()
+
+        if(TextUtils.isEmpty(berat)){
+            Toast.makeText(this, "Berat tidak boleh kosong", Toast.LENGTH_LONG).show()
+            return
+        }
+
+
+        val tinggi = binding.tinggiEditText.text.toString()
+
+        if(TextUtils.isEmpty(tinggi)){
+            Toast.makeText(this, "Tinggi Bandan  tidak boleh kosong", Toast.LENGTH_LONG).show()
+            return
+        }
 
         // laki-laki
 
 
 
         val selectedId = binding.radioGroup.checkedRadioButtonId
+        if(selectedId == -1){
+            Toast.makeText(this, "Pilih jenis kelamin dulu", Toast.LENGTH_LONG).show()
+            return
+        }
 
+
+        val tinggiCm = tinggi.toFloat()/ 100
+        val bmi = berat.toFloat() /(tinggiCm * tinggiCm)
         val isMale = selectedId == R.id.priaRadioButton
         val kategori = getKategori(bmi, isMale)
 
