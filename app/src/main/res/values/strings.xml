@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Hello World</string>
+    <string name="pemesan">Nama Pemesan</string>
+    <string name="topping_label">Toppings:</string>
+    <string name="cream_label">Whipped Cream</string>
+    <string name="choco_label">Chocolate</string>
+    <string name="minus_button">-</string>
+    <string name="plus_button">+</string>
+    <string name="order_button" >Order</string>
+    <string name="quantity_label">Quantity</string>
 </resources>
