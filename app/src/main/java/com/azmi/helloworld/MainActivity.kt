@@ -41,8 +41,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.getStatus().observe(this){
             updateUI(it)
         }
-
-
     }
 
 
