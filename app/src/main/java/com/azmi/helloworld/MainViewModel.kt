@@ -6,16 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class MainViewModel : ViewModel() {
 
     private val data = MutableLiveData<List<Hewan>>()
 
     init {
-        data.value = initData()
         retrieveDataFromServer()
     }
 
@@ -23,7 +20,7 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = HewanApi.service.getHewan()
-                Log.d("MainViewModel", result)
+                data.postValue(result)
             } catch (e: Exception) {
                 Log.d("MainViewModel", "Gagal: ${e.message}")
             }
@@ -32,20 +29,4 @@ class MainViewModel : ViewModel() {
 
     fun getData(): LiveData<List<Hewan>> = data
 
-    private fun initData(): List<Hewan> {
-        return listOf(
-            Hewan("Ayam", "Gallus gallu", R.drawable.ayam),
-            Hewan("Angsa", "Cygnus olor", R.drawable.angsa),
-            Hewan("Bebek", "Cairina moschata", R.drawable.bebek),
-            Hewan("Domba", "Ovis ammo", R.drawable.domba),
-            Hewan("Kalkun", "Meleagris gallopavo", R.drawable.kalkun),
-            Hewan("Kambing", "Capricornis sumatrensis", R.drawable.kambing),
-            Hewan("Kelinci", "Oryctolagus cuniculus", R.drawable.kelinci),
-            Hewan("Kerbau", "Bubalus bubalis", R.drawable.kerbau),
-            Hewan("Kuda", "Equus caballus", R.drawable.kuda),
-            Hewan("sapi", "Bos taurus", R.drawable.sapi),
-
-            )
-
-    }
 }
