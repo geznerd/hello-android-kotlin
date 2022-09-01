@@ -1,6 +1,7 @@
 package com.azmi.helloworld
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -36,6 +37,36 @@ class MainActivity : AppCompatActivity() {
         viewModel.getData().observe(this) {
             adapter.updatedata(it)
         }
+
+        viewModel.getStatus().observe(this){
+            updateUI(it)
+        }
+
+
+    }
+
+
+    private fun updateUI(status: ApiStatus) {
+        when(status) {
+            ApiStatus.LOADING -> {
+                binding.recyclerView.visibility = View.GONE
+                binding.errorTextView.visibility = View.GONE
+                binding.progressBar.visibility = View.VISIBLE
+            }
+
+            ApiStatus.SUCCESS -> {
+                binding.recyclerView.visibility = View.VISIBLE
+                binding.errorTextView.visibility = View.GONE
+                binding.progressBar.visibility = View.GONE
+            }
+
+            ApiStatus.FAILED -> {
+                binding.recyclerView.visibility = View.GONE
+                binding.errorTextView.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.GONE
+            }
+        }
+
     }
 
 
