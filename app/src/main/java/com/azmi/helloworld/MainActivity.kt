@@ -2,7 +2,6 @@ package com.azmi.helloworld
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
@@ -27,9 +26,16 @@ class MainActivity : AppCompatActivity() {
         // data class Hewan -> ArrayList
         //========================
         val divider = DividerItemDecoration(this, RecyclerView.VERTICAL)
+
         binding.recyclerView.addItemDecoration(divider)
-        binding.recyclerView.adapter = MainAdapter(viewModel.data)
+
+        val adapter = MainAdapter()
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.setHasFixedSize(true)
+
+        viewModel.getData().observe(this) {
+            adapter.updatedata(it)
+        }
     }
 
 

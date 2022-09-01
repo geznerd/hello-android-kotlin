@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.azmi.helloworld.databinding.ListItemBinding
 
 
-class MainAdapter (private val data: List<Hewan>) : RecyclerView.Adapter<MainAdapter.ViewHolder>(){
+class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>(){
+
+    private val data = ArrayList<Hewan>()
 
     class ViewHolder(private val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
 
@@ -21,6 +23,12 @@ class MainAdapter (private val data: List<Hewan>) : RecyclerView.Adapter<MainAda
                 Toast.makeText(root.context, message, Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    fun updatedata(newData: List<Hewan>) {
+        data.clear()
+        data.addAll(newData)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
